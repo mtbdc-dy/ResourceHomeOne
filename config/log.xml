@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">  
+  <!--R1 Base-->  
+  <appender name="R1Base" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Base/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Framework-->  
+  <appender name="R1Framework" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Framework/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Framework sdk&sso-->  
+  <appender name="R1FrameworkSso" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Framework/sso/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Framework init-->  
+  <appender name="R1FrameworkInit" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Framework/init/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Starflow-->  
+  <appender name="R1Starflow" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Starflow/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!-- R1 SmartForm -->  
+  <appender name="BizFormAppender" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/BizForm/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %t %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 MC-->  
+  <appender name="R1MC" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/MC/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Proxy-->  
+  <appender name="R1Proxy" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Proxy/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 GR-->  
+  <appender name="R1GR" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/GR/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!--R1 Adapter-->  
+  <appender name="R1Adapter" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender"> 
+    <param name="Path" value="/ResourceOneHome/logs/Adapter/"/>  
+    <param name="MaxFileSize" value="1048576"/>  
+    <param name="MaxSizeRollBackups" value="50"/>  
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender"> 
+    <layout class="org.apache.log4j.PatternLayout"> 
+      <param name="ConversionPattern" value="%d %-5p - %m%n"/> 
+    </layout> 
+  </appender>  
+  <!-- 
+	<appender name="JDBC_SYSTEM" class="com.icss.j2ee.audit.core.AuditorJDBCAppender">
+		<param name="Driver" value="COM.ibm.db2.jdbc.app.DB2Driver"/>
+		<param name="FieldName" value="LOG_ID"/>
+		<param name="TableName" value="RO_LOG"/>
+		<param name="URL" value="jdbc:db2:RONE"/>
+		<param name="User" value="db2admin"/>
+		<param name="Password" value="password"/>
+		<param name="Sql" value="insert into RO_LOG (LOG_ID,LOG_TIME, LOG_WRITOR, LOG_LEVEL, LOG_TYPE, LOG_SOURCE, LOG_MESSAGE) values (#P,%d{LONGDATE}, '$WRITOR$', '%p', '$TYPE$', '$SOURCE$', '$MESSAGE$')"/>
+	</appender>
+	<appender name="JDBCPool_SYSTEM" class="com.icss.j2ee.audit.core.AuditorJDBCPoolAppender">
+		<param name="FieldName" value="LOG_ID"/>
+		<param name="TableName" value="RO_LOG"/>
+		<param name="Sql" value="insert into RO_LOG (LOG_ID,LOG_TIME, LOG_WRITOR, LOG_LEVEL, LOG_TYPE, LOG_SOURCE, LOG_MESSAGE) values (#P,%d{LONGDATE}, '$WRITOR$', '%p', '$TYPE$', '$SOURCE$', '$MESSAGE$')"/>
+	</appender>
+	 -->  
+  <!--V4 用数据库appender-->  
+  <appender name="DB_APPENDER" class="com.icss.ro.framework.log.appender.LogJDBCPoolAppender"> 
+    <!-- 如果使用jdbc连接，则将pool改为jdbc  -->  
+    <param name="ConnectionType" value="pool"/>  
+    <param name="Driver" value="COM.ibm.db2.jdbc.app.DB2Driver"/>  
+    <!-- URL, User, and Password values need to be updated according to local database setting -->  
+    <param name="FieldName" value="LOG_ID"/>  
+    <param name="TableName" value="RO_LOG"/>  
+    <param name="URL" value="jdbc:db2:shenji4n"/>  
+    <param name="User" value="db2admin"/>  
+    <param name="Password" value="db2admin"/>  
+    <param name="Sql" value="insert into #T (LOG_ID,LOG_TIME, LOG_WRITOR, LOG_LEVEL, LOG_TYPE, LOG_SOURCE, LOG_MESSAGE) values (#P,%d{LONGDATE}, '$WRITOR$', '%p', '$TYPE$', '$SOURCE$', '$MESSAGE$')"/> 
+  </appender>  
+  <!-- system,SSO,com.icss.j2ee.dao 三个logger应该是冗余的  -->  
+  <appender name="regieflowAppender" class="com.icss.j2ee.log.impl.ExpandDailyRollingFileAppender">
+    <param name="Path" value="/ResourceOneHome/logs/Starflow/"/>
+    <param name="MaxFileSize" value="1048576"/>
+    <param name="MaxSizeRollBackups" value="50"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d %t %-5p - %m%n"/>
+    </layout>
+  </appender>
+  <logger name="system"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Base"/> 
+  </logger>  
+  <logger name="SSO"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Framework"/> 
+  </logger>  
+  <logger name="com.icss.j2ee.dao"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Base"/> 
+  </logger>  
+  <!--R1 Framework-->  
+  <logger name="com.icss.ro.framework"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Framework"/> 
+  </logger>  
+  <logger name="com.icss.resourceone"> 
+    <level value="error"/>  
+    <appender-ref ref="R1FrameworkSso"/> 
+  </logger>  
+  <logger name="com.icss.resourceone.common.init"> 
+    <level value="error"/>  
+    <appender-ref ref="R1FrameworkInit"/> 
+  </logger>  
+  <!--R1 MC-->  
+  <logger name="com.icss.ro.adminconsole"> 
+    <level value="info"/>  
+    <appender-ref ref="R1MC"/> 
+  </logger>  
+  <logger name="com.icss.ro.managementconsole"> 
+    <level value="info"/>  
+    <appender-ref ref="R1MC"/> 
+  </logger>  
+  <!--R1 StarFlow StarFlowClient-->  
+  <logger name="AppsComposer"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Starflow"/> 
+  </logger>  
+  <!-- R1 SmartForm -->  
+  <logger name="BizForm"> 
+    <level value="info"/>  
+    <appender-ref ref="BizFormAppender"/> 
+  </logger>  
+  <!--R1 Proxy-->  
+  <logger name="com.icss.ro.proxyadmin"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Proxy"/> 
+  </logger>  
+  <!--R1 GR-->  
+  <logger name="com.icss.ro.gr"> 
+    <level value="error"/>  
+    <appender-ref ref="R1GR"/> 
+  </logger>  
+  <!--R1 Adapter-->  
+  <logger name="com.icss.ro.adapter"> 
+    <level value="error"/>  
+    <appender-ref ref="R1Adapter"/> 
+  </logger>  
+  <root> 
+    <level value="info"/> 
+  </root>  
+  <!--R1 StarFlow regieflow-->
+  <logger name="regieflow">
+    <level value="debug"/>
+    <appender-ref ref="regieflowAppender"/>
+  </logger>
+</log4j:configuration>

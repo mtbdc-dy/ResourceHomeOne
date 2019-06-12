@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ldapMapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
+  <mapping serverType="IBMDS"> 
+    <passwordEncryption type="crypt"/>  
+    <person objectClass="inetOrgPerson" rdn="uid=USERID" synchronizePassword="true" belongOrgAttribute="o" isFloatDeposit="true" floatDepositRDN="cn=employees"> 
+      <attributeMap name="USERID" value="uid"/><!--账号-->  
+      <attributeMap name="PASSWORD" value="userpassword"/><!--密码-->
+      <attributeMap name="FULL_NAME" value="cn"/><!--全名-->
+      <attributeMap name="LASTNAME" value="sn"/><!--姓--> 
+      <attributeMap name="FIRSTNAME" value="displayName"/> <!--名-->
+	  <attributeMap name="SEX" value="internationaliSDNNumber"/><!--性别-->
+	  <attributeMap name="PERSONUUID" value=""/><!--人员uuid-->
+	  <attributeMap name="BIRTHDATE" value="labeledURI"/><!--出生年月-->
+ 
+	  <attributeMap name="ALIASNAME" value="displayName"/><!--别名-->
+
+	  <attributeMap name="NATIONALITY" value=""/><!--民族-->
+	  <attributeMap name="NATIVE_PLACE" value=""/><!--籍贯-->
+	  <attributeMap name="MOBILE" value=""/><!--移动电话-->
+	  <attributeMap name="HOMETEL" value=""/><!--家庭电话-->
+	  <attributeMap name="OFFICETEL" value="telephoneNumber"/><!--办公电话-->
+	  <attributeMap name="HOMEFAX" value=""/><!--家庭传真-->
+	  <attributeMap name="OFFICEFAX" value=""/><!--办公传真-->
+	  <attributeMap name="HOMEPAGE" value=""/><!--个人主页-->
+	  <attributeMap name="EMAIL" value="mail"/><!--电子邮件-->
+	  <attributeMap name="MSN_QQ" value=""/><!--msn&qq-->
+	  <attributeMap name="CONNECTADDR" value=""/><!--联系地址-->
+	  <attributeMap name="ZIP" value=""/><!--邮编-->
+	  <attributeMap name="MARRYCODE" value="destinationIndicator"/><!--婚姻状况-->
+	  <attributeMap name="IDNUM" value="employeeNumber"/><!--证件号码-->
+	  <attributeMap name="CARDCODE" value="employeeType"/><!--证件类型-->
+	  <attributeMap name="PERSONCODE" value="givenName"/><!--工号-->
+	  <attributeMap name="DEGREECODE" value=""/><!--最高学位 initials-->
+	  <attributeMap name="EDUCODE" value="l"/><!--最高学历-->
+	  <attributeMap name="POSITIONGRADE" value="ou"/><!--职级-->
+	  <attributeMap name="COUNTRY" value="registeredAddress"/><!--国家-->
+	  <attributeMap name="PCODE" value="roomNumber"/><!--政治面貌-->
+	  <attributeMap name="PROVINCE" value="st"/><!--省份-->
+	  <attributeMap name="CITY" value="street"/><!--城市-->
+	  <attributeMap name="POSITION" value="title"/><!--职位-->
+
+	  
+    </person>  
+    <org objectClass="groupOfUniqueNames" rdn="cn=ORGCODE" isSynchronize="true" memberAttribute="uniquemember" parentDNAttribute="owner"  depositRDN="" > 
+      <attributeMap name="ORGUUID" value=""/>
+	  <attributeMap name="ORGNAME" value="o"/> 
+	  <attributeMap name="ORGCODE" value="cn"/> 
+	  <attributeMap name="ORGSEQUENCENO" value="businessCategory"/> 
+	  <attributeMap name="ORGMEMO" value="description"/> 
+    </org> 
+  </mapping> 
+</ldapMapping>

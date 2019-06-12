@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StarFlow-calendar>
+  <!--id为0的，标识是缺省的日历-->
+  <calendar id="0">
+    <!--
+ 			标准天分的含义：周一到周五为工作日，周六周日为非工作日
+ 			格式：
+ 				子标签WorkTime：属性detail说明工作日上班的开始和结束时间，hours标识的是该段上班的小时数
+ 		-->
+    <StandardDay>
+      <WorkTime detail="09:00:00-12:00:00" hours="3"/>
+      <WorkTime detail="13:00:00-18:00:00" hours="5"/>
+    </StandardDay>
+    <!--
+    	例外天的含义：
+    		1、工作日变成非工作日——国家法定假日
+    		2、非工作日变成工作日——加班
+    		3、工作日的作息时间做了修改——比如妇女节放假半天
+    	格式：属性WorkStatus: 1:代表工作日，0代表非工作日；SpecialDay:特殊的日期
+    				子标签：WorkTime（参照StandardDay的WorkTime）
+    -->
+    <SpecialDay WorkStatus="0" day="20101001"/>
+    <SpecialDay WorkStatus="0" day="20101002"/>
+    <SpecialDay WorkStatus="0" day="20101003"/>
+    <SpecialDay WorkStatus="0" day="20101004"/>
+    <SpecialDay WorkStatus="0" day="20101005"/>
+    <SpecialDay WorkStatus="0" day="20101006"/>
+    <SpecialDay WorkStatus="0" day="20101007"/>
+    <SpecialDay WorkStatus="1" day="20101009">
+      <WorkTime detail="09:00:00-12:00:00" hours="3"/>
+      <WorkTime detail="13:00:00-18:00:00" hours="5"/>
+    </SpecialDay>
+    <SpecialDay WorkStatus="1" day="20101010">
+      <WorkTime detail="09:00:00-12:00:00" hours="3"/>
+      <WorkTime detail="13:00:00-18:00:00" hours="5"/>
+    </SpecialDay>
+  </calendar>
+</StarFlow-calendar>

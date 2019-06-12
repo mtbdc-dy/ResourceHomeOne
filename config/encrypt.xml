@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<encrypt:configuration xmlns:encrypt="http://www.icss.com.cn/encrypt/">
+  <factory name="DefaultFactory" class="com.icss.j2ee.encrypt.impl.DefaultEncryptFactory" >
+    <encrypt name="DefaultEncrypt" class="com.icss.j2ee.encrypt.impl.DefaultEncrypt">
+	  <salt name="DefaultSalt">
+		<param name="SaltLength" value="8" />
+		<param name="SaltAlgorithm" value="PBEWithSHAAndTwofish-CBC" />
+		<param name="SaltProvider" value="org.bouncycastle.jce.provider.BouncyCastleProvider" />
+		<param name="IterationCount" value="20" />
+	  </salt>
+	</encrypt>
+  </factory>
+</encrypt:configuration>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<logger:configuration xmlns:logger="http://www.icss.com/log/">
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="com.icss.j2ee.audit.core.AuditorLayout">
+			<param name="ConversionPattern"
+				value="%d{DATE} --$TYPE$ %p [$ACTOR$]  $SOURCE$ $MESSAGE$ %n" />
+		</layout>
+	</appender>
+	<!-- JDBC appender requires JDBC driver.The configuration should be updated by user according to local setting. -->
+	<appender name="JDBC_SYSTEM"
+		class="com.icss.j2ee.audit.core.AuditorJDBCAppender">
+
+		<param name="Driver" value="COM.ibm.db2.jdbc.app.DB2Driver" />
+		<param name="FieldName" value="ACT_ID" />
+		<param name="TableName" value="RO_AUDIT" />
+		<param name="URL" value="jdbc:db2:ROEEE" />
+		<param name="User" value="db2admin" />
+		<param name="Password" value="db2admin" />
+		<!-- Interval unit : ms -->
+		<!-- param name="Interval" value="60000" / -->
+		<!-- param name="BufferSize" value="20" / -->
+		<!-- Table LOGGING_SYSTEM
+			create table LOGGING_SYSTEM
+			(
+			TIME               NUMBER(19)          null    ,
+			SESSIONS           NUMBER(30)          null
+			)
+		-->
+		<param name="Sql"
+			value=" insert into RO_AUDIT (ACT_ID,ACTOR, USERID,PERSONUUID, ORGNAME,ORGUUID,ENROLLED_ORG, ENROLLED_ORGUUID, ACCOUNTTYPE,ACT_RESULT,ACT_ACTION,ACT_CODE,ACT_ITEM_NUM,ACT_ITEM_CODE,ACT_OBJ, ACT_TIME, ACT_MESSAGE, ISCLOB,ACT_IP,SIGNATURE ) values (#P,'$ACTOR$','$USERID$','$PERSONUUID$','$ORGNAME$','$ORGUUID$', '$ENROLLED_ORG$','$ENROLLED_ORGUUID$',$ACCOUNTTYPE$,$RESULT$,'$ACTION$','$ACTCODE$', $ITEMNUM$,'$ITEMCODE$','$OBJECT$', %d{LONGDATE}, '##$MESSAGE$##',?,'$IP$',?)" />
+	</appender>
+	<!-- recore by Asyn service -->
+	<appender name="JDBCPool_SYSTEM"
+		class="com.icss.ro.framework.audit.Appender.AuditorAsynJDBCPoolAppender">
+		<param name="FieldName" value="ACT_ID" />
+		<param name="TableName" value="RO_AUDIT" />
+		<param name="MaxMessageLength" value="1024" />
+		<param name="Sql" value="" />
+	</appender>
+	<!-- recore by UDP protocol -->
+	<appender name="UDPAppender" class="com.icss.resourceone.sdk.audit.appender.AuditorUDPAppender"> 
+         <param name="Server" value="localhost"/>  
+         <param name="Port" value="162"/> 
+    </appender>  
+
+	
+	<!-- default system based logging configuration -->
+	<auditor name="system" additivity="false">
+		<enable value="true" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="JDBCPool_SYSTEM" />
+	</auditor>
+	
+	<!-- default system based logging configuration -->
+	<auditor name="com.icss" additivity="false">
+		<enable value="true" />
+		<appender-ref ref="JDBCPool_SYSTEM" />
+	</auditor>
+	<!-- Log for file management:
+		publish, unpublish, create, modify, delete, upload. NOT SUPPORTED
+		<auditor name="user.filemgr" >
+		<enable value="false" />
+		</auditor>
+	-->
+</logger:configuration>

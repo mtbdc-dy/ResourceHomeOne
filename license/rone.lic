@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<license>
+    <type>Development</type>
+    <licensee>development</licensee>
+    <serial>WQ6CH-05I9U-O38QV-KRIJX</serial>
+    <expire-date>2040/01/31</expire-date>
+    <products>
+        <product name="R1 Infobus">
+        </product>
+        <product name="R1 StarFlow">
+          <features>
+            <feature>Advanced</feature>
+          </features>
+        </product>
+        <product name="R1 MangementConsole">
+        </product>
+        <product name="BizForm">
+        </product>
+        <product name="R1 Studio">
+        </product>
+        <product name="BizFramework">
+        </product>
+        <product name="R1 Framework">
+        </product>
+        <product name="R1 GlobalRepository">
+        </product>
+        <product name="R1 Adapter">
+        </product>
+        <product name="R1 DataExchange">
+        </product>
+    </products>
+    <signature>302c021430b5fbc13d962ff98efa42e2427dd989668cea44021439ff7328b40a6acab1377f7cca0074a2d1c9ba89</signature>
+</license>

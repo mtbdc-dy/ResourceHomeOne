@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StarFlowConfig>
+  <StarFlowEngine>
+    <EngineWorkMode>PRODUCTION</EngineWorkMode>
+    <EngineRunMode>SYNC</EngineRunMode>
+    <Language>zh_CN</Language>
+    <TransactionIsolation>
+			TRANSACTION_READ_COMMITTED
+		</TransactionIsolation>
+    <workflowdefinitioncache>false</workflowdefinitioncache>
+    <FusionWork>false</FusionWork>
+    <AdminRMIServer>true</AdminRMIServer>
+    <AdminRMIServerPort>8066</AdminRMIServerPort>
+    <UseStaticAssignment>true</UseStaticAssignment>
+    <competeWorkItem>
+      <UserAutoUnLock>false</UserAutoUnLock>
+      <AutoUnLockOverTimeSeconds>14400</AutoUnLockOverTimeSeconds>
+      <AutoUnLockIntervalSeconds>300</AutoUnLockIntervalSeconds>
+    </competeWorkItem>
+    <Cluster>
+      <UseCluster>false</UseCluster>
+      <Nodes>
+        <Node id="node1">
+          <IP>192.9.107.111</IP>
+          <Adminport>8066</Adminport>
+        </Node>
+        <Node id="node2">
+          <IP>192.9.107.111</IP>
+          <Adminport>8067</Adminport>
+        </Node>
+      </Nodes>
+    </Cluster>
+    <backup>
+      <everyBackupProcessInstanceCount>100</everyBackupProcessInstanceCount>
+    </backup>
+    <workflowEvent>true</workflowEvent>
+    <timeLimit>
+      <overTimeCheck>true</overTimeCheck>
+      <checkCycleSeconds>3600</checkCycleSeconds>
+      <overTimeAlertCycleSeconds>14400</overTimeAlertCycleSeconds>
+      <timeCalculatorClass>com.icss.starflow.sdk.impl.TimeCalculatorWithCalendar</timeCalculatorClass>
+    </timeLimit>
+    <form>
+      <formImpl>com.icss.ro.starflow.engine.impl.WfFormImpl</formImpl>
+    </form>
+    <Organization>
+      <UseOrganizationCustomImpl>false</UseOrganizationCustomImpl>
+      <OrganizationCustomImpl>
+        <FinalResource
+          implClass="com.icss.ro.starflow.organization.impl.WfHumanImpl"
+          name="人员" type="Human"/>
+        <OrgResource
+          implClass="com.icss.ro.starflow.organization.impl.WfRoleImpl"
+          name="角色" type="Role"/>
+        <OrgResource
+          implClass="com.icss.ro.starflow.organization.impl.WfOrgUnitImpl"
+          name="组织单元" type="OrganizationalUnit"/>
+        <OrgResource
+          implClass="com.icss.ro.starflow.organization.impl.WfPositionImpl"
+          name="职务" type="Position"/>
+        <OrgResource
+          implClass="com.icss.ro.starflow.organization.impl.WfAppRoleImpl"
+          name="应用角色" type="APPROLE"/>
+      </OrganizationCustomImpl>
+    </Organization>
+  </StarFlowEngine>
+  <StarFlowSDK>
+    <UtilDateTime.toFriendlyString>
+			yyyy-MM-dd HH:mm
+		</UtilDateTime.toFriendlyString>
+    <notes>
+      <SubFlowAllFieldsReturn>{0} {1} {2}</SubFlowAllFieldsReturn>
+      <SubFlowAllFieldsReturn.DateFormat>
+				yyyy-MM-dd HH:mm
+			</SubFlowAllFieldsReturn.DateFormat>
+      <SubFlowLastFieldReturn>{0} {1} {2}</SubFlowLastFieldReturn>
+      <SubFlowLastFieldReturn.DateFormat>
+				yyyy-MM-dd HH:mm
+			</SubFlowLastFieldReturn.DateFormat>
+      <WmNote.toFriendlyString>
+				{0} {1} {2}
+			</WmNote.toFriendlyString>
+      <WmNote.toFriendlyString.DateFormat>
+				yyyy-MM-dd HH:mm
+			</WmNote.toFriendlyString.DateFormat>
+    </notes>
+  </StarFlowSDK>
+  <StarFlowWS>
+    <!-- StarFlowServerURL是配置StarFlowBpmServer地址和服务的上下文中。服务发布到资源库是以此配置做为所发布的资源服务的真实访问地址（WSDL），如果变更本机地址，请重新发布所有流程服务 -->
+    <StarFlowServerURL>http://localhost:8080/sfserver</StarFlowServerURL>
+    <GlobalRepositoryURL>http://localhost:8080/grs</GlobalRepositoryURL>
+  </StarFlowWS>
+</StarFlowConfig>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service-config>
+  <!-- 服务验证（保留） -->
+  <!-- 
+    <authorization service-name="userLogin"/>
+	-->
+  <!-- 线程池参数
+		ttl: time to live
+		wait-millis: 
+		jobs:
+		min-threads:
+		max-threads:
+		poll-enabled:
+		poll-db-millis:
+	-->
+  <thread-pool jobs="1" max-threads="10" min-threads="0"
+    name="createProcess-pool" poll-db-millis="20000"
+    poll-enabled="false" ttl="18000000" wait-millis="750"/>
+  <thread-pool jobs="1" max-threads="20" min-threads="0"
+    name="general-pool" poll-db-millis="20000" poll-enabled="false"
+    ttl="18000000" wait-millis="750"/>
+  <thread-pool jobs="1" max-threads="20" min-threads="0"
+    name="eventAction-pool" poll-db-millis="20000" poll-enabled="false"
+    ttl="18000000" wait-millis="750"/>
+  <!-- 服务引擎配置 -->
+  <engine class="com.icss.ro.starflow.service.engine.StandardJavaEngine" name="java"/>
+  <engine class="com.icss.ro.starflow.service.engine.SOAPClientEngine" name="soap"/>
+  <engine class="com.icss.ro.starflow.engine.service.WorkflowEngine" name="workflow"/>
+  <engine
+    class="com.icss.ro.starflow.service.engine.CommonBeanShellEngine" name="cbeanshell"/>
+  <engine class="com.icss.ro.starflow.service.engine.BeanShellEngine" name="beanshell"/>
+  <engine class="com.icss.ro.starflow.service.engine.HttpEngine" name="http"/>
+  <engine class="com.icss.ro.starflow.service.engine.SOAPClientEngine" name="SOAPClient"/>
+  <engine
+    class="com.icss.ro.starflow.service.engine.RPCSOAPClientEngine" name="RPCSOAPClient"/>
+  <engine class="com.icss.ro.starflow.engine.debug.impl.DebugEngine" name="debug"/>
+  <!-- 资源（服务定义文件）加载器：指定如何找到服务定义文件 -->
+  <resource-loader
+    class="com.icss.ro.starflow.service.config.ClasspathLoader"
+    name="engine-registry" prefix="com/icss/ro/starflow/service/"/>
+  <!-- 
+    <resource-loader name="application-registry" class="com.icss.ro.starflow.service.config.FileLoader" prepend-env="resourceOneHome" prefix="/config/"/>
+	-->
+  <!-- 服务定义文件 -->
+  <!-- 
+    <global-services loader="engine-registry" location="services_workflow.xml"/>
+    <global-services loader="application-registry" location="services_workflow_docmanage.xml"/>
+     -->
+</service-config>

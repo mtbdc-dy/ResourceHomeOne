@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sfMonitor>
+  <ui>
+    <add as="graph" element="graph"/>
+  </ui>
+  <sfDefaultPopupMenu as="popupHandler">
+    <add action="suspend" as="suspend" icon="images/suspend.gif" if="cansuspend"/>
+    <add action="resume" as="resume" icon="images/resume.gif" if="canresume"/>
+    <add action="unLock" as="unLock" icon="images/unlock.gif" if="canunLock"/>
+    <add action="send" as="send" icon="images/connector.gif" if="canesend"/>
+    <separator/>
+    <add action="gointo" as="gosubflow" icon="images/collapsed.gif" if="isSubFlow"/>
+    <add action="gointo" as="golocalflow" icon="images/collapsed.gif" if="isLocalFlow"/>
+    <add action="goUp" as="goUp" icon="images/up.gif" if="notRoot"/>
+    <separator/>
+  </sfDefaultPopupMenu>
+  <sfGraph as="graph">
+    <sfStylesheet as="stylesheet">
+      <add as="text">
+        <add as="shape" value="rectangle"/>
+        <add as="perimeter">sfPerimeter.RectanglePerimeter</add>
+        <add as="fontSize" value="12"/>
+        <add as="align" value="left"/>
+        <add as="verticalAlign" value="top"/>
+      </add>
+      <add as="defaultVertex" extend="text">
+        <add as="shape" value="rectangle"/>
+        <!--文字大小-->
+        <add as="fontSize" value="14"/>
+        <!--内部对象对齐方式-->
+        <add as="align" value="center"/>
+        <!--内部对象对齐方式-->
+        <add as="verticalAlign" value="middle"/>
+        <add as="shadow" value="1"/>
+        <!--未启动节点边框颜色-->
+        <add as="WF_NOT_STARTED_strokeColor" value="#B5B5B5"/>
+        <!--未启动节点颜色渐变,从-->
+        <add as="WF_NOT_STARTED_fillColor" value="#F4F4F4"/>
+        <!--未启动节点颜色渐变,到-->
+        <add as="WF_NOT_STARTED_gradientColor" value="#CACACA"/>
+        <!--处理中节点边框颜色-->
+        <add as="WF_RUNNING_strokeColor" value="#3DCC55"/>
+        <!--处理中节点颜色渐变,从-->
+        <add as="WF_RUNNING_fillColor" value="#9BECAB"/>
+        <!--处理中节点颜色渐变,到-->
+        <add as="WF_RUNNING_gradientColor" value="#7DD88F"/>
+        <!--接收中节点边框颜色-->
+        <add as="WF_RECEIVING_strokeColor" value="#E1A44E"/>
+        <!--接收中节点颜色渐变,从-->
+        <add as="WF_RECEIVING_fillColor" value="#FEDA92"/>
+        <!--接收中节点颜色渐变,到-->
+        <add as="WF_RECEIVING_gradientColor" value="#EDC16B"/>
+        <!--挂起节点边框颜色-->
+        <add as="WF_SUSPENDED_strokeColor" value="#E1A44E"/>
+        <!--挂起中节点颜色渐变,从-->
+        <add as="WF_SUSPENDED_fillColor" value="#FEDA92"/>
+        <!--挂起中节点颜色渐变,到-->
+        <add as="WF_SUSPENDED_gradientColor" value="#EDC16B"/>
+        <!--中断节点的边框颜色-->
+        <add as="WF_TERMINATED_strokeColor" value="#666DC7"/>
+        <!--中断节点的颜色渐变,从-->
+        <add as="WF_TERMINATED_fillColor" value="#9EA4F5"/>
+        <!--中断节点颜色渐变,到-->
+        <add as="WF_TERMINATED_gradientColor" value="#747BD3"/>
+        <!--中止节点的边框颜色-->
+        <add as="WF_ABORTED_strokeColor" value="#E87E7E"/>
+        <!--中止节点的颜色渐变,从-->
+        <add as="WF_ABORTED_fillColor" value="#F2A3A3"/>
+        <!--中止节点颜色渐变,到-->
+        <add as="WF_ABORTED_gradientColor" value="#E87E7E"/>
+        <!--已完成节点边框颜色-->
+        <add as="WF_COMPLETED_strokeColor" value="#3d8acc"/>
+        <!--已完成节点颜色渐变,从-->
+        <add as="WF_COMPLETED_fillColor" value="#9dcef7"/>
+        <!--已完成节点边颜色渐变,到-->
+        <add as="WF_COMPLETED_gradientColor" value="#6fb2ed"/>
+      </add>
+      <add as="defaultEdge">
+        <add as="shape" value="connector"/>
+        <add as="fontSize" value="14"/>
+        <add as="align" value="center"/>
+        <add as="verticalAlign" value="middle"/>
+        <add as="rounded" value="1"/>
+        <add as="labelBackgroundColor" value="white"/>
+        <!--未通过的迁移线颜色-->
+        <add as="WF_NOT_STARTED_strokeColor" value="#CACACA"/>
+        <!--已通过的迁移线颜色-->
+        <add as="WF_COMPLETED_strokeColor" value="#6fb2ed"/>
+        <!--特送的迁移线颜色-->
+        <add as="WF_DSCOMPLETED_strokeColor" value="#9BECAB"/>
+        <!--线粗细 -->
+        <add as="strokeWidth" value="1.5"/>
+        <!--连接线风格：1:空：直线，2：sfEdgeStyle.ElbowConnector，3： sfEdgeStyle.SideToSide，4：sfEdgeStyle.TopToBottom ，5：sfEdgeStyle.EntityRelation-->
+        <add as="edgeStyle"/>
+        <add as="endArrow" value="classic"/>
+      </add>
+      <add as="rounded" extend="defaultVertex">
+        <add as="rounded" value="1"/>
+        <add as="spacingTop" value="54"/>
+      </add>
+      <add as="swimlane" extend="defaultVertex">
+        <add as="shape" value="swimlane"/>
+        <add as="shadow" value="1"/>
+        <add as="startSize" value="23"/>
+        <add as="horizontal" value="true"/>
+        <add as="align" value="center"/>
+        <add as="verticalAlign" value="center"/>
+        <add as="strokeColor" value="#EEEEEE"/>
+        <add as="fillColor" value="#D4D4D4"/>
+      </add>
+      <add as="symbol">
+        <add as="shape" value="image"/>
+        <add as="perimeter">sfPerimeter.RectanglePerimeter</add>
+        <add as="labelBackgroundColor" value="white"/>
+        <add as="fontSize" value="10"/>
+        <add as="spacingTop" value="30"/>
+        <add as="align" value="center"/>
+        <add as="verticalAlign" value="top"/>
+      </add>
+    </sfStylesheet>
+    <sfGraphModel as="model"/>
+  </sfGraph>
+</sfMonitor>
